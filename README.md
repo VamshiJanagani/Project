@@ -1,5 +1,5 @@
 # Project
-                                                 Loan Status Prediction Using Exploratory Data Analysis.
+                                  Loan Status Prediction Using Exploratory Data Analysis.
                                                  
                                                 
 Abstract  : 
@@ -22,7 +22,7 @@ Project Flow :
 
 6.    Building Flask Web Application.
 
-                                                             Importing The Required Libraries  
+                                 Importing The Required Libraries  
 
 In this milestone, we first import the packages required for building the model
 
@@ -40,9 +40,9 @@ Pandas- It is a fast, powerful, flexible, and easy to use open-source data analy
 Numpy- It is an open-source numerical Python library.
 Matplotlib- Visualisation with python
 sklearn. Preprocessing- This package provides several common utility functions and transformer classes 
-Seaborn as sns- Seaborn is a data visualization library in Python based on matplotlib.
-
-                                                                      Data Collection
+Seaborn as sns- Seaborn is a data visualization library in Python based on matplotlib  
+                  
+                                 Data Collection
 
 ML depends heavily on data, without data, it is impossible for a machine to learn. It is the most crucial aspect that makes algorithm training possible. In Machine Learning projects, we need a training data set. It is the actual data set used to train the model for performing various actions.
 
@@ -56,12 +56,12 @@ ML depends heavily on data, without data, it is impossible for a machine to lear
 
 So here we will be loading the dataset to our model. The dataset here is in CSV format. And check the number of rows and columns present in our dataset using shape attributes.
 
-                                                                    Data Preprocessing
+                                 Data Preprocessing
 
 Data pre-processing is a process of cleaning the raw data i.e. the data is collected in the real world and is converted to a clean data set. In other words, whenever the data is gathered from different sources it is collected in a raw format and this data isn’t feasible for the analysis.
 Therefore, certain steps are executed to convert the data into a small clean data set, this part of the process is called as data pre-processing Follow the following steps to process your Data
 
-                                                                  Finding The Missing Values
+                                 Finding The Missing Values
 
 Sometimes you may find some data are missing in the dataset. We need to be equipped to handle the problem when we come across them. 
 One of the most common ideas to handle the problem is to take a mean of all the values of the same column and have it to replace the missing data. 
@@ -92,7 +92,7 @@ Bankruptcies                      718
 Tax Liens                         524
 dtype: int64
 
-                                                          Label Encoding And One Hot Encoding
+                                  Label Encoding And One Hot Encoding
 
 1.        data.dropna(subset=['Loan Status'],inplace=True)
 2.        le=preprocessing.LabelEncoder()
@@ -107,17 +107,9 @@ If a label repeats it assigns the same value as assigned earlier. Here ‘le’ 
 1.        data['Term'].replace(("Short Term","Long Term"),(0,1),inplace=True)
 2.        data.head()
 
+Next, we simply replace 0 and 1 for short term and the long term where it is giv
 
-1.            Loan ID	Customer ID	Loan Status	Current Loan Amount	Term	Credit Score	Annual Income	Years in current job	Home Ownership	Purpose	Monthly Debt	Years of Credit History	Months since last delinquent	Number of Open Accounts	Number of Credit Problems	Current Credit Balance	Maximum Open Credit	Bankruptcies	Tax Liens
-2.            0	14dd8831-6af5-400b-83ec-68e61888a048	981165ec-3274-42f5-a3b4-d104041a9ca9	1	445412.0	0	709.0	1167493.0	8 years	Home Mortgage	Home Improvements	5214.74	17.2	NaN	6.0	1.0	228190.0	416746.0	1.0	0.0
-3.            1	4771cc26-131a-45db-b5aa-537ea4ba5342	2de017a3-2e01-49cb-a581-08169e83be29	1	262328.0	0	NaN	NaN	10+ years	Home Mortgage	Debt Consolidation	33295.98	21.1	8.0	35.0	0.0	229976.0	850784.0	0.0	0.0
-4.            2	4eed4e6a-aa2f-4c91-8651-ce984ee8fb26	5efb2b2b-bf11-4dfd-a572-3761a2694725	1	99999999.0	0	741.0	2231892.0	8 years	Own Home	Debt Consolidation	29200.53	14.9	29.0	18.0	1.0	297996.0	750090.0	0.0	0.0
-5.            3	77598f7b-32e7-4e3b-a6e5-06ba0d98fe8a	e777faab-98ae-45af-9a86-7ce5b33b1011	1	347666.0	1	721.0	806949.0	3 years	Own Home	Debt Consolidation	8741.90	12.0	NaN	9.0	0.0	256329.0	386958.0	0.0	0.0
-6.            4	d4062e70-befa-4995-8643-a0de73938182	81536ad9-5ccf-4eb8-befb-47a4d608658e	1	176220.0	0	NaN	NaN	5 years	Rent	Debt Consolidation	20639.70	6.1	NaN	15.0	0.0	253460.0	427174.0	0.0	0.0
-
-Here, we simply replace 0 and 1 for short term and the long term where it is given true
-
-                                                                  Normalizing The Values
+                          Normalizing The Values
 
 1.           data['Credit Score']=data['Credit Score'].apply(lambda val:(val /10) if val>850 else val)
 
@@ -144,7 +136,7 @@ Normalization- Normalization is the process of reorganizing data in a database s
 Here, we will be handling the null values for the column credit score by using the mean method.
 As we analyze we see that short term=0 and long term=1.
 
-                                                                 Analyzing The Data
+                                  Analyzing The Data
 
 Firstly prints the sum of missing values in the column Annual Income.
 Then, by using fillna function we are filling the null values with the mean method inplace where it is true.
@@ -169,7 +161,7 @@ c(data['Credit Score'])
 9.           data['Home Ownership'].value_counts().sort_values(ascending = True).plot(kind='bar', title="Number of Loan based on Home ownership")
 <AxesSubplot:title={'center':'Number of Loan based on Home ownership'}>
             
-                                                              Handling Missing Values
+                                               Handling Missing Values
  
  Here also we are filling the null values using the fillna() method. The column here is Years In Current Job
  
@@ -197,17 +189,17 @@ You will need to train the datasets to run smoothly and see an incremental impro
 
 Now we apply the Decision Tree algorithm on our dataset.
 
-                                                         Splitting The Dataset And Predicting
+                                           Splitting The Dataset And Predicting
  
 Here we split the data into x_train, x_test, y_train, and y_test. The training size data should always be three times more than the testing size data to get accurate results. So the size is less here in the code. And then we use decision tree and fit the model.
                                   
-                                                             Save The Model
+                                              Save The Model
  
 We import the pickle file and dump the model into it.
 
 Dumping the model into pickle file and saving it
 
-                                                         Build Flask Application
+                                           Build Flask Application
                                                          
                                                          
 Flask Frame Work with Machine Learning Model In this section, we will be building a web application that is integrated into the model we built. A UI is provided for the uses where he has to enter the values for predictions. The enter values are given to the saved model and prediction is showcased on the UI.
